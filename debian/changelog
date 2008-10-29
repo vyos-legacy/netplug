@@ -1,0 +1,53 @@
+netplug (1.2.9-2) unstable; urgency=low
+
+  * Improve rejected debian/copyright.
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Tue, 09 Sep 2008 21:47:19 +0200
+
+netplug (1.2.9-1) unstable; urgency=low
+
+  * New upstream version.
+    - includes PID-file fix.
+  * Update debian/control:
+    - Standards-Version: 3.8.0
+    - Homepage-field
+    - Compare to ifplugd in Description
+  * Update debian/init.d:
+    - Add init-info for dependency-based booting
+  * Add debian/watch
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Wed, 30 Jul 2008 18:31:51 +0200
+
+netplug (1.2.7-2) unstable; urgency=low
+
+  * main.c: Write PID-file after damon()izing.
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Fri,  7 Jan 2005 10:08:11 +0100
+
+netplug (1.2.7-1) unstable; urgency=low
+
+  * New upstream version.
+  * debian/init.d: Fix pid-file handling.
+  * debian/control: Add Homepage-location to description.
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Fri, 13 Aug 2004 09:31:41 +0200
+
+netplug (1.2-2) unstable; urgency=low
+
+  * Fix name of netplugd in init.d script.
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Sun,  4 Jul 2004 20:05:59 +0200
+
+netplug (1.2-1) unstable; urgency=low
+
+  * New upstream version.
+  * Update download location.
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Thu, 25 Sep 2003 19:58:22 +0200
+
+netplug (1.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Philipp Matthias Hahn <pmhahn@debian.org>  Mon,  1 Sep 2003 22:22:43 +0200
+
