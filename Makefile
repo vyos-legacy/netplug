@@ -51,4 +51,4 @@ fedora: $(tar_file)
 	rpmbuild --define 'release 0.fdr.1' -ta $(tar_file)
 
 clean:
-	-rm -f netplugd *.o *.tar.bz2
+	-rm -f netplugd *.o *.tar.bz2 ../netplug_*
