@@ -188,7 +188,7 @@ probe_interfaces(void)
     }
 
     if (nmatch == 0) {
-        do_log(LOG_WARNING, "Could not probe for any interfaces");
+//        do_log(LOG_WARNING, "Could not probe for any interfaces");
     }
 }
 

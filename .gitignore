@@ -1,0 +1,14 @@
+/build-stamp
+/config.o
+/debian/files
+/debian/netplug.debhelper.log
+/debian/netplug.postinst.debhelper
+/debian/netplug.postrm.debhelper
+/debian/netplug.prerm.debhelper
+/debian/netplug.substvars
+/debian/netplug/
+/if_info.o
+/lib.o
+/main.o
+/netlink.o
+/netplugd
