@@ -45,7 +45,8 @@ install: build
 
 # Build architecture-independent files here.
 binary-indep: build install
-# We have nothing to do by default.
+	rm -f debian/files
+	# We have nothing to do by default.
 
 # Build architecture-dependent files here.
 binary-arch: build install
