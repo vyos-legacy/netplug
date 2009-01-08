@@ -1,3 +1,18 @@
+netplug (1.2.9-2-vyatta-2) unstable; urgency=low
+
+  [ Rick Balocca ]
+  * Initial vyatta changes
+
+  [ Mohit Mehta ]
+  * vyatta related changed to netplugd
+
+  [ An-Cheng Huang ]
+  * add support for development build
+  * update maintainer information
+  * "files" file should be removed before package build
+
+ -- An-Cheng Huang <ancheng@vyatta.com>  Wed, 07 Jan 2009 21:07:16 -0800
+
 netplug (1.2.9-2-vyatta-1) unstable; urgency=low
 
   * Import Debian netplug 1.2.9-2
