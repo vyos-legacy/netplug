@@ -1,3 +1,9 @@
+netplug (1.2.9-2-vyatta-4) unstable; urgency=low
+
+  * Build with stack-protection and position-independant-executable
+
+ -- Stephen Hemminger <stephen.hemminger@vyatta.com>  Mon, 01 Feb 2010 15:23:59 -0800
+
 netplug (1.2.9-2-vyatta-3) unstable; urgency=low
 
   * UNRELEASED
