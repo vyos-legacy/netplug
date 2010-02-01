@@ -7,6 +7,8 @@
 
 CFLAGS = -Wall -g
 
+CFLAGS += -fstack-protector -fPIE
+LDFLAGS += -pie
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
 else
