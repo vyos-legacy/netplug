@@ -161,7 +161,8 @@ child_handler(int sig, siginfo_t *info, void *v)
     ce.pid = info->si_pid;
     ret = waitpid(info->si_pid, &ce.status, 0);
     if (ret == info->si_pid)
-        write(child_handler_pipe[1], &ce, sizeof(ce));
+        if (write(child_handler_pipe[1], &ce, sizeof(ce)) != sizeof(ce))
+	    do_log(LOG_ERR, "can't write to child pipe: %m");
 }
 
 /* Poll the existing interface state, so we can catch any state
@@ -187,9 +188,11 @@ poll_interfaces(void)
             return 0;
 
         memcpy(ifr.ifr_name, info->name, sizeof(ifr.ifr_name));
-        if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) < 0)
-            do_log(LOG_ERR, "%s: can't get flags: %m", info->name);
-        else {
+        if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) < 0) {
+	    if (debug)
+              do_log(LOG_ERR, "%s: can't get flags: %m", info->name);
+
+        } else {
             ifsm_flagchange(info, ifr.ifr_flags);
             ifsm_flagpoll(info);
         }
