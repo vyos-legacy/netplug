@@ -36,7 +36,7 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep
 	dh_installdirs
 
 	#$(MAKE) prefix=$(CURDIR)/debian/netplug initdir='$(prefix)/etc/init.d' scriptdir='$(prefix)/etc/netplug' install
