@@ -1,3 +1,9 @@
+netplug (1.2.9-2-vyatta-8) unstable; urgency=low
+
+  * fix squeeze build
+
+ -- An-Cheng Huang <ancheng@vyatta.com>  Tue, 31 Aug 2010 17:45:52 -0700
+
 netplug (1.2.9-2-vyatta-7) unstable; urgency=low
 
   * UNRELEASED
