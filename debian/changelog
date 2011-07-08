@@ -1,3 +1,9 @@
+netplug (1.2.9-2-vyatta-10+napa1) unstable; urgency=low
+
+  * new branch
+
+ -- Deepti Kulkarni <deepti@vyatta.com>  Thu, 07 Jul 2011 20:45:19 -0700
+
 netplug (1.2.9-2-vyatta-10) unstable; urgency=low
 
   * new branch
