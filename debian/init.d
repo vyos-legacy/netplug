@@ -23,7 +23,7 @@ case "$1" in
   start)
 	echo -n "Starting $DESC: "
 	start-stop-daemon --start --quiet --pidfile /var/run/"$NAME".pid \
-		--exec "$DAEMON" -- -p /var/run/"$NAME".pid >/dev/null
+		--exec "$DAEMON" -- -P -p /var/run/"$NAME".pid >/dev/null
 	echo "$NAME."
 	;;
   stop)
