@@ -1,3 +1,9 @@
+netplug (1.2.9-2-vyatta-12) unstable; urgency=low
+
+  * Turn off ethernet interface autoprobing
+
+ -- Stephen Hemminger <shemminger@vyatta.com>  Tue, 09 Aug 2011 11:30:41 -0700
+
 netplug (1.2.9-2-vyatta-11) unstable; urgency=low
 
   * new branch
