@@ -2,8 +2,8 @@ Source: netplug
 Section: net
 Priority: optional
 Maintainer: Vyatta Package Maintainers <maintainers@vyatta.com>
-Build-Depends: debhelper (>= 5)
-Standards-Version: 3.8.0
+Build-Depends: debhelper (>> 7)
+Standards-Version: 3.8.3
 Homepage: http://www.red-bean.com/~bos/
 
 Package: netplug
@@ -15,4 +15,4 @@ Description: network link monitor daemon
  .
  It's similar to ifplugd, but uses NETLINK instead of regularly polling
  the link status. This improves power-consumption with laptops, but does
- not work with any network card.
+ not work with all network card.

@@ -31,7 +31,7 @@ clean:
 	dh_testroot
 	rm -f build-stamp
 	$(MAKE) clean
-	dh_clean 
+	dh_clean
 
 install: build
 	dh_testdir
@@ -55,7 +55,7 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs 
+	dh_installchangelogs
 	dh_installdocs
 	dh_installinit
 	dh_installman man/man8/netplugd.8

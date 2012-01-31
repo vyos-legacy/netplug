@@ -1,8 +1,10 @@
 #! /bin/sh
 ### BEGIN INIT INFO
-# Provides:          netplugd
-# Required-Start:    $network $local_fs
-# Required-Stop:     $network $local_fs
+# Provides:          netplug
+# Required-Start:    $local_fs
+# Required-Stop:     $local_fs
+# Should-Start:      $network $syslog
+# Should-Stop:       $network $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: Brings up/down network automatically

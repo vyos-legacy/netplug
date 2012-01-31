@@ -1,5 +1,7 @@
 version := $(shell awk '/define version/{print $$3}' netplug.spec)
 
+DESTDIR ?=
+
 prefix ?=
 bindir ?= $(prefix)/sbin
 etcdir ?= $(prefix)/etc/netplug
@@ -16,39 +18,31 @@ netplugd: config.o netlink.o lib.o if_info.o main.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 install:
-	install -d $(install_opts) -m 755 $(bindir) $(etcdir) $(scriptdir) \
-		$(initdir) $(mandir)/man8
-	install $(install_opts) -m 755 netplugd $(bindir)
-	install $(install_opts) -m 644 etc/netplugd.conf $(etcdir)
-	install $(install_opts) -m 755 scripts/netplug $(scriptdir)
-	install $(install_opts) -m 755 scripts/rc.netplugd $(initdir)/netplugd
-	install $(install_opts) -m 444 man/man8/netplugd.8 $(mandir)/man8
+	install -d $(install_opts) -m 755 \
+		$(DESTDIR)/$(bindir) \
+		$(DESTDIR)/$(etcdir) \
+		$(DESTDIR)/$(scriptdir) \
+		$(DESTDIR)/$(initdir) \
+		$(DESTDIR)/$(mandir)/man8
+	install $(install_opts) -m 755 netplugd $(DESTDIR)/$(bindir)
+	install $(install_opts) -m 644 etc/netplugd.conf $(DESTDIR)/$(etcdir)
+	install $(install_opts) -m 755 scripts/netplug $(DESTDIR)/$(scriptdir)
+	install $(install_opts) -m 755 scripts/rc.netplugd $(DESTDIR)/$(initdir)/netplugd
+	install $(install_opts) -m 444 man/man8/netplugd.8 $(DESTDIR)/$(mandir)/man8
 
-bk_root := $(shell bk root)
+hg_root := $(shell hg root)
 tar_root := netplug-$(version)
-tar_file := $(bk_root)/$(tar_root).tar.bz2
-files := $(shell bk sfiles -Ug)
+tar_file := $(hg_root)/$(tar_root).tar.bz2
+files := $(shell hg manifest)
 
 tarball: $(tar_file)
 
 $(tar_file): $(files)
-	mkdir -p $(bk_root)/$(tar_root)
+	mkdir -p $(hg_root)/$(tar_root)
 	echo $(files) | tr ' ' '\n' | \
-	  xargs -i cp -a --parents {} $(bk_root)/$(tar_root)
-	tar -C $(bk_root) -c -f - $(tar_root) | bzip2 -9 > $(tar_file)
-	rm -rf $(bk_root)/$(tar_root)
-
-.FORCE: rpm
-
-rpm: $(tar_file)
-	mkdir -p rpm/{BUILD,RPMS/{i386,x86_64},SOURCES,SPECS,SRPMS}
-	rpmbuild --define '_topdir $(shell pwd)/rpm' -ta $(tar_file)
-	mv rpm/*/*.rpm rpm
-	mv rpm/*/*/*.rpm rpm
-	rm -rf rpm/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-
-fedora: $(tar_file)
-	rpmbuild --define 'release 0.fdr.1' -ta $(tar_file)
+	  xargs -i cp -a --parents {} $(hg_root)/$(tar_root)
+	tar -C $(hg_root) -c -f - $(tar_root) | bzip2 -9 > $(tar_file)
+	rm -rf $(hg_root)/$(tar_root)
 
 clean:
-	-rm -f netplugd *.o *.tar.bz2 ../netplug_*
+	-rm -f netplugd *.o *.tar.bz2
