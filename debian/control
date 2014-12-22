@@ -1,7 +1,7 @@
 Source: netplug
 Section: net
 Priority: optional
-Maintainer: Vyatta Package Maintainers <maintainers@vyatta.com>
+Maintainer: VyOS Package Maintainers <maintainers@vyos.net>
 Build-Depends: debhelper (>> 7)
 Standards-Version: 3.8.3
 Homepage: http://www.red-bean.com/~bos/
