@@ -1,3 +1,9 @@
+netplug (1.2.9.1-2+vyos2+lithium3) unstable; urgency=low
+
+  * netplug: update dh_gencontrol with new development build flag
+
+ -- Alex Harpin <development@landsofshadow.co.uk>  Sun, 14 Jun 2015 13:00:35 +0100
+ 
 netplug (1.2.9.1-2+vyos2+lithium2) unstable; urgency=low
 
   * Update maintainer address
